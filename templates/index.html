@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ratings Internacionales</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <div class="header">
+        <h1>Visualización de Ratings Internacionales</h1>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <button id="play-btn">▶ Ejecutar consulta</button>
+        </div>
+        <div class="visual-area" id="visual-area">
+            <!-- Aquí se inyecta el contenido -->
+        </div>
+    </div>
+    <button class="nav-btn nav-back" id="back-btn">⟵</button>
+    <button class="nav-btn nav-next" id="next-btn">⟶</button>
+    <div id="loading-overlay" class="loading-overlay" style="display:none;">
+        <div class="tetris-loader">
+            <div class="block block1"></div>
+            <div class="block block2"></div>
+            <div class="block block3"></div>
+            <div class="block block4"></div>
+        </div>
+        <div class="loading-text">Conectando...</div>
+    </div>
+    <script src="/static/main.js"></script>
+    <script>
+        const loadingMessages = [
+            "Procesando... ",
+            "Consultando inteligencia artificial...",
+            "Analizando noticias...",
+            "Analizando emisores...",
+            "Analizando entorno macroeconómico...",
+            "Cuantificando severidad de los riesgos...",
+            "Consolidando información...",
+            "Computando pronósticos..."
+        ];
+        let loadingIndex = 0;
+        const loadingTextEl = document.querySelector('.loading-text');
+        let loadingInterval = null;
+
+        function showLoadingMessage() {
+            loadingTextEl.classList.remove('visible');
+            setTimeout(() => {
+                loadingTextEl.textContent = loadingMessages[loadingIndex];
+                loadingTextEl.classList.add('visible');
+                loadingIndex++;
+                if (loadingIndex >= loadingMessages.length) {
+                    // Stop at the last message
+                    clearInterval(loadingInterval);
+                }
+            }, 300); // Wait for fade out before changing text
+        }
+
+        if (loadingTextEl) {
+            showLoadingMessage();
+            loadingInterval = setInterval(showLoadingMessage, 10000);
+        }
+    </script>
+</body>
+</html>
