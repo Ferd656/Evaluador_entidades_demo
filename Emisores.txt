@@ -1,0 +1,20 @@
+ID	Emisor
+90	Gobierno de USA
+91	Gobierno de México
+92	Gobierno de Chile
+93	Gobierno de Uruguay
+94	Gobierno de Colombia
+95	Barclays PLC
+82	Banistmo de Panamá
+83	Multibank de Panamá
+84	Banco General de Panamá
+96	Goldman Sachs
+97	BNP Paribas
+104	Citibank
+105	BICSA
+106	Bank of New York Mellon
+107	BBVA
+108	Banco Santander
+109	Bank of America
+110	JP Morgan
+111	Caixa Bank
