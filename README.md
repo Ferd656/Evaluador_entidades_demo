@@ -19,4 +19,7 @@ En esta demo, el programa hace uso de la API de OpenAI para asignas un score a u
 
 ## Video demostración:
 
+<a href="https://youtu.be/dsNCI1ChvaM?si=7dul1eJw79jPksrS" target="_blank">
+  <img src="demoimg.png" alt="demo video"/>
+</a>
 
