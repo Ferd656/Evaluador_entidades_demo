@@ -24,6 +24,9 @@ if not os.path.isfile(file_path):
     print("No se seleccionó un archivo válido. Terminando el programa.")
     exit()
 
+with open("file_selected.flag", "w") as f:
+    f.write("1")
+
 df = pd.read_csv(file_path, delimiter="\t", encoding="utf-8")
 names = df["Emisor"]
 subjects_str = "\n".join([f"Subject {i+1}: {name}" for i, name in enumerate(names)])
@@ -34,6 +37,7 @@ try:
 except Exception as e:
     print(f"Error al leer el archivo 'c': {e}")
 finally:
+    os.remove("file_selected.flag")
     if not core:
         print("No se pudo leer el contenido del archivo 'c'. Terminando el programa.")
         exit()
@@ -57,6 +61,18 @@ followup_response = client.chat.completions.create(
     model=MODELO,
     messages=messages
 )
+
+followup_reply = followup_response.choices[0].message.content
+messages.append({"role": "assistant", "content": followup_reply})
+
+messages.append({"role": "user", "content": "Para cada sujeto con 'componentes': 'NA' inténtalo de nuevo, puedes basarte en noticias del periodo en cuestión"})
+
+followup_response = client.chat.completions.create(
+    model=MODELO,
+    messages=messages
+)
+
+os.remove("file_selected.flag")
 
 def clean_json_string(s):
     lines = s.splitlines()

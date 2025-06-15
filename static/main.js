@@ -19,7 +19,7 @@ function notaColor(nota) {
 }
 
 function computeTotalScore(componentes) {
-    return componentes.reduce((acc, c) => acc + c.nota * c.ponderador, 0).toFixed(2);
+    return componentes.reduce((acc, c) => acc + c.nota * (c.ponderador/100), 0).toFixed(2);
 }
 
 function showItem(idx) {
@@ -140,6 +140,7 @@ async function runMainPy() {
         currentIndex = 0;
         showItem(currentIndex);
     } catch (e) {
+        print(str(e))
         alert('Hubo un error ejecutando main.py');
     } finally {
         // Hide overlay and enable buttons

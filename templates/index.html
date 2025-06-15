@@ -38,8 +38,7 @@
             "Analizando emisores...",
             "Analizando entorno macroeconómico...",
             "Cuantificando severidad de los riesgos...",
-            "Consolidando información...",
-            "Computando pronósticos..."
+            "Consolidando información..."
         ];
         let loadingIndex = 0;
         const loadingTextEl = document.querySelector('.loading-text');
@@ -58,10 +57,28 @@
             }, 300); // Wait for fade out before changing text
         }
 
-        if (loadingTextEl) {
-            showLoadingMessage();
-            loadingInterval = setInterval(showLoadingMessage, 10000);
+        async function waitForFileSelection() {
+            loadingTextEl.textContent = "Recibiendo prompt...";
+            loadingTextEl.classList.add('visible');
+
+            const checkFile = async () => {
+                const response = await fetch('/file-status');
+                const data = await response.json();
+                return data.selected;
+            };
+
+            const poll = setInterval(async () => {
+                const selected = await checkFile();
+                if (selected) {
+                    clearInterval(poll);
+                    loadingIndex = 0;
+                    showLoadingMessage();
+                    loadingInterval = setInterval(showLoadingMessage, 11000);
+                }
+            }, 1000); // Poll every second
         }
+
+        waitForFileSelection();
     </script>
 </body>
 </html>

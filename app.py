@@ -20,6 +20,10 @@ def data():
         return jsonify(data)
     except Exception:
         return jsonify({})
+    
+@app.route('/file-status')
+def file_status():
+    return jsonify({"selected": os.path.isfile("file_selected.flag")})
 
 @app.route('/static/<path:filename>')
 def static_files(filename):
@@ -40,3 +44,4 @@ def run_main():
 if __name__ == '__main__':
     webbrowser.open("http://127.0.0.1:5000/")
     app.run(debug=False)
+    
