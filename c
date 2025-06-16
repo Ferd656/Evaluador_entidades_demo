@@ -1,4 +1,4 @@
- Basado en el conocimiento público disponible hasta febrero 2023 dame tu opinión sobre reputación para las siguientes entidades. A las entidades les conoceremos de ahora en adelante como 'sujeto'.
+ Basado en el conocimiento público disponible hasta agosto 2023 dame tu opinión sobre reputación para las siguientes entidades. A las entidades les conoceremos de ahora en adelante como 'sujeto'.
       
         Para cada una de los siguientes sujetos, coméntame los componentes que seas capaz, y consideres importantes. Abarcando, pero no limitado a:
         (noticias, estabilidad del país, polémicas recientes, compromiso ambiental y social, etc...).
