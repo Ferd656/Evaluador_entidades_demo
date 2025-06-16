@@ -1,7 +1,7 @@
 # Rating cualitativo de entidades internacionales con IA [Demo]
 
 
-En esta demo, el programa hace uso de la API de OpenAI para asignar a un listado dado de entidades internacionales una calificación ponderanda sobre distintos rubros de orden cualitativo.
+El programa toma un <i>pool</i> de entidades financieras y aplica sobre ellas un escaneo en web, mediante el uso de API de OpenAI. La información recabada es recopilada y analizada para generar un informe que incluye una calificación ponderada sobre distintos rubros de orden cualitativo.
 
 ---
 
@@ -11,7 +11,7 @@ En esta demo, el programa hace uso de la API de OpenAI para asignar a un listado
 
 • Descargar o clonar
 
-• [Opcional] Modificar el contenido de los ficheros Emisores.txt y c.
+• [Opcional] Modificar el contenido de los ficheros Emisores.txt y c.prompt.
 
 • Ejecutar app.py
 
