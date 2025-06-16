@@ -1,4 +1,4 @@
-# Rating cualitativo de entidades internacionales con IA [Demo]
+# Análisis cualitativo de entidades financieras con I.A. [Demo]
 
 
 El programa toma un <i>pool</i> de entidades financieras y aplica sobre ellas un escaneo en web, mediante el uso de API de OpenAI. La información recabada es recopilada y analizada para generar un informe que incluye una calificación ponderada sobre distintos rubros de orden cualitativo.
@@ -19,7 +19,7 @@ El programa toma un <i>pool</i> de entidades financieras y aplica sobre ellas un
 
 ## Video demostración:
 
-<a href="https://youtu.be/dsNCI1ChvaM?si=7dul1eJw79jPksrS" target="_blank">
+<a href="https://youtu.be/DDR3bcJMFpA" target="_blank">
   <img src="demoimg.png" alt="demo video"/>
 </a>
 
