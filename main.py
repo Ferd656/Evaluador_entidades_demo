@@ -35,13 +35,13 @@ names = df["Emisor"]
 subjects_str = "\n".join([f"Subject {i+1}: {name}" for i, name in enumerate(names)])
 
 try:
-    with open('c', 'r', encoding='utf-8') as f:
+    with open('c.prompt', 'r', encoding='utf-8') as f:
         core = f.read()
 except Exception as e:
-    print(f"Error al leer el archivo 'c': {e}")
+    print(f"Error al leer el archivo 'c.prompt': {e}")
 finally:
     if not core:
-        print("No se pudo leer el contenido del archivo 'c'. Terminando el programa.")
+        print("No se pudo leer el contenido del archivo 'c.prompt'. Terminando el programa.")
         if os.path.exists("file_selected.flag"):
             os.remove("file_selected.flag")
         exit()
