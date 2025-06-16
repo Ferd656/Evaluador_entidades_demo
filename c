@@ -2,7 +2,7 @@
       
         Para cada una de los siguientes sujetos, coméntame los componentes que seas capaz, y consideres importantes. Abarcando, pero no limitado a:
         (noticias, estabilidad del país, polémicas recientes, compromiso ambiental y social, etc...).
-        A cada componente asigna un score del 0 al 100, donde 0 es muy malo, 50 es regular y 100 es perfecto. Y junto a la nota asigna un ponderador (entero del 1 al 100) cuyo objetivo es asignar más peso a aquellos componentes que consideras más importantes en aras de obtener una nota final para cada sujeto.
+        A cada componente asigna un score del 0 al 100, donde 0 es muy malo, 50 es regular y 100 es perfecto. Y junto a la nota asigna un porcentaje ponderador cuyo objetivo es asignar más peso a aquellos componentes que consideras más importantes en aras de obtener una nota final para cada sujeto.
 
         Devuelve únicamente el análisis completo en formato JSON con la siguiente estructura:
         {

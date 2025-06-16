@@ -15,6 +15,9 @@ client = OpenAI(
     api_key=os.getenv("CLAVE_DE_FER")
 )
 
+if os.path.exists("file_selected.flag"):
+    os.remove("file_selected.flag")
+
 file_path = filedialog.askopenfilename(
     title="Selecciona el insumo de emisores",
     filetypes=[("Text files", "*.txt"), ("All files", "*.*")]
@@ -39,7 +42,8 @@ except Exception as e:
 finally:
     if not core:
         print("No se pudo leer el contenido del archivo 'c'. Terminando el programa.")
-        os.remove("file_selected.flag")
+        if os.path.exists("file_selected.flag"):
+            os.remove("file_selected.flag")
         exit()
 
 messages = [
@@ -55,7 +59,12 @@ response = client.chat.completions.create(
 assistant_reply = response.choices[0].message.content
 messages.append({"role": "assistant", "content": assistant_reply})
 
-messages.append({"role": "user", "content": "para cada sujeto, puedes añadir los componentes que consideres necesarios, pero no te limites a los que ya he mencionado. Si crees que hay otros componentes importantes, añádelos."})
+messages.append(
+    {
+        "role": "user",
+        "content": "para cada sujeto, puedes añadir los componentes que consideres necesarios, pero no te limites a los que ya he mencionado. Si crees que hay otros componentes importantes, añádelos."
+    }
+)
 
 followup_response = client.chat.completions.create(
     model=MODELO,
@@ -65,14 +74,20 @@ followup_response = client.chat.completions.create(
 followup_reply = followup_response.choices[0].message.content
 messages.append({"role": "assistant", "content": followup_reply})
 
-messages.append({"role": "user", "content": "Para cada sujeto con 'componentes': 'NA' inténtalo de nuevo, puedes basarte en noticias del periodo en cuestión"})
+messages.append(
+    {
+        "role": "user", 
+        "content": "Para cada sujeto con 'componentes': 'NA' inténtalo de nuevo, puedes basarte en noticias del periodo en cuestión. Finalmente, devuelve el JSON final."
+    }
+)
 
 followup_response = client.chat.completions.create(
     model=MODELO,
     messages=messages
 )
 
-os.remove("file_selected.flag")
+if os.path.exists("file_selected.flag"):
+    os.remove("file_selected.flag")
 
 def clean_json_string(s):
     lines = s.splitlines()
