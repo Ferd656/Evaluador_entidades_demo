@@ -19,7 +19,7 @@ function notaColor(nota) {
 }
 
 function computeTotalScore(componentes) {
-    return componentes.reduce((acc, c) => acc + c.nota * (c.ponderador/100), 0).toFixed(2);
+    return componentes.reduce((acc, c) => acc + c.nota * c.ponderador, 0).toFixed(2);
 }
 
 function showItem(idx) {
