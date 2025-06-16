@@ -127,7 +127,6 @@ body {
     background: #232946;
 }
 
-/* Loading overlay and Tetris animation */
 .loading-overlay {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
