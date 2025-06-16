@@ -51,10 +51,9 @@
                 loadingTextEl.classList.add('visible');
                 loadingIndex++;
                 if (loadingIndex >= loadingMessages.length) {
-                    // Stop at the last message
                     clearInterval(loadingInterval);
                 }
-            }, 300); // Wait for fade out before changing text
+            }, 300);
         }
 
         async function waitForFileSelection() {
@@ -75,7 +74,7 @@
                     showLoadingMessage();
                     loadingInterval = setInterval(showLoadingMessage, 11000);
                 }
-            }, 1000); // Poll every second
+            }, 1000);
         }
 
         waitForFileSelection();
