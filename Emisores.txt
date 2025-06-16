@@ -1,20 +1,41 @@
 ID	Emisor
-90	Gobierno de USA
-91	Gobierno de México
-92	Gobierno de Chile
-93	Gobierno de Uruguay
-94	Gobierno de Colombia
-95	Barclays PLC
-82	Banistmo de Panamá
-83	Multibank de Panamá
-84	Banco General de Panamá
-96	Goldman Sachs
-97	BNP Paribas
-104	Citibank
-105	BICSA
-106	Bank of New York Mellon
-107	BBVA
-108	Banco Santander
-109	Bank of America
-110	JP Morgan
-111	Caixa Bank
+1	Gobierno de USA
+2	Gobierno de México
+3	Gobierno de Chile
+4	Gobierno de Uruguay
+5	Gobierno de Colombia
+6	Gobierno de Costa Rica
+7	Barclays PLC
+8	Banistmo de Panamá
+9	Multibank de Panamá
+10	Banco General de Panamá
+11	Goldman Sachs
+12	BNP Paribas
+13	Citibank
+14	BICSA
+15	Bank of New York Mellon
+16	BBVA
+17	Banco Santander
+18	Bank of America
+19	JP Morgan
+20	Caixa Bank
+21	Banco Nacional de Costa Rica
+22	Banco Popular de Costa Rica
+23	Banco de Costa Rica
+24	BAC San José
+25	Prival Bank
+26	Banco Promérica
+27	Banco Scotiabank
+28	Davivienda
+29	Banco BCT
+30	Costa Rica Financiera Monge
+31	Costa Rica MUCAP
+32	Costa Rica Mutual Alajuela
+33	Costa Rica BANHVI
+34	Banco de Desarrollo de América Latina (CAF)
+35	Costa Rica RECOPE
+36	Costa Rica LA NACION
+37	Costa Rica FIFCO
+38	Instituto Costarricense de Electricidad (ICE)
+39	Costa Rica Improsa
+40	Costa Rica BCR SAFI
