@@ -4,14 +4,11 @@ let currentIndex = 0;
 let componentsShown = false;
 
 function notaColor(nota) {
-    // 0 = red, 50 = yellow, 100 = green
     let r, g, b = 60;
     if (nota <= 50) {
-        // Red to yellow
         r = 255;
         g = Math.round(255 * (nota / 50));
     } else {
-        // Yellow to green
         r = Math.round(255 * (1 - (nota - 50) / 50));
         g = 255;
     }
@@ -29,8 +26,6 @@ function showItem(idx) {
     const itemKey = keys[idx];
     const item = data[itemKey];
     const totalScore = computeTotalScore(item.componentes);
-
-    // Title and score
     const titleDiv = document.createElement('div');
     titleDiv.className = 'visual-title';
     titleDiv.innerHTML = `
@@ -38,13 +33,9 @@ function showItem(idx) {
         <span class="visual-score" style="background:${notaColor(totalScore)}">${totalScore}</span>
     `;
     visual.appendChild(titleDiv);
-
-    // Click to show components
     titleDiv.style.cursor = 'pointer';
     titleDiv.title = 'Haz clic para ver los componentes';
     titleDiv.onclick = () => showComponents(idx);
-
-    // Optionally, show a hint
     const hint = document.createElement('div');
     hint.style.marginTop = '30px';
     hint.style.fontSize = '1.2rem';
@@ -61,8 +52,6 @@ function showComponents(idx) {
     const itemKey = keys[idx];
     const item = data[itemKey];
     const totalScore = computeTotalScore(item.componentes);
-
-    // Title and score
     const titleDiv = document.createElement('div');
     titleDiv.className = 'visual-title';
     titleDiv.innerHTML = `
@@ -71,7 +60,6 @@ function showComponents(idx) {
     `;
     visual.appendChild(titleDiv);
 
-    // List of components
     const list = document.createElement('div');
     list.className = 'component-list';
 
@@ -79,7 +67,6 @@ function showComponents(idx) {
         const compDiv = document.createElement('div');
         compDiv.className = 'component-item';
 
-        // Title and score
         const compTitle = document.createElement('div');
         compTitle.className = 'component-title';
         compTitle.innerHTML = `
@@ -88,7 +75,6 @@ function showComponents(idx) {
         `;
         compDiv.appendChild(compTitle);
 
-        // Comment with typing effect
         const comment = document.createElement('div');
         comment.className = 'component-comment';
         comment.id = `comment-${i}`;
@@ -96,7 +82,6 @@ function showComponents(idx) {
 
         list.appendChild(compDiv);
 
-        // Typing effect
         setTimeout(() => typeText(`comment-${i}`, comp.comentario), 500 * i);
     });
 
@@ -122,9 +107,7 @@ function prevItem() {
 }
 
 async function runMainPy() {
-    // Show overlay
     document.getElementById('loading-overlay').style.display = 'flex';
-    // Disable all buttons
     document.querySelectorAll('button').forEach(btn => btn.disabled = true);
 
     try {
@@ -133,7 +116,6 @@ async function runMainPy() {
             const errorData = await res.json();
             throw new Error(errorData.output || 'Error ejecutando main.py');
         }
-        // Reload data after main.py finishes
         const dataRes = await fetch('/data');
         data = await dataRes.json();
         keys = Object.keys(data);
@@ -143,7 +125,6 @@ async function runMainPy() {
         print(str(e))
         alert('Hubo un error ejecutando main.py');
     } finally {
-        // Hide overlay and enable buttons
         document.getElementById('loading-overlay').style.display = 'none';
         document.querySelectorAll('button').forEach(btn => btn.disabled = false);
     }
