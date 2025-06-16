@@ -37,9 +37,9 @@ try:
 except Exception as e:
     print(f"Error al leer el archivo 'c': {e}")
 finally:
-    os.remove("file_selected.flag")
     if not core:
         print("No se pudo leer el contenido del archivo 'c'. Terminando el programa.")
+        os.remove("file_selected.flag")
         exit()
 
 messages = [
